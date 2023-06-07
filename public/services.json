@@ -1,0 +1,122 @@
+[
+    {
+        "_id": 1,
+        "image": "https://i.ibb.co/h9hNQDk/child-Support.png",
+        "title": "Child Support",
+        "backgroundColor": "#FFBD3E"
+    },
+    {
+        "_id": 2,
+        "image": "https://i.ibb.co/KrSRnBX/refuse-Shelter.png",
+        "title": "Refuge shelter",
+        "backgroundColor": "#FF7044"
+    },
+    {
+        "_id": 3,
+        "image": "https://i.ibb.co/nb1cLT1/food-Charity.png",
+        "title": "Food Charity",
+        "backgroundColor": "#3F90FC"
+    },
+    {
+        "_id": 4,
+        "image": "https://i.ibb.co/pjJP759/cloth-Swap.png",
+        "title": "Host a clothing swap.",
+        "backgroundColor": "#421FCF"
+    },
+    {
+        "_id": 5,
+        "image": "https://i.ibb.co/CB8Fs7r/river-Clean.png",
+        "title": "Host a river clean-up.",
+        "backgroundColor": "#3F90FC"
+    },
+    {
+        "_id": 6,
+        "image": "https://i.ibb.co/6rwLcr7/clean-Water.png",
+        "title": "Clean water for children",
+        "backgroundColor": "#421FCF"
+    },
+    {
+        "_id": 7,
+        "image": "https://i.ibb.co/mcZXpKB/good-Education.png",
+        "title": "Good education",
+        "backgroundColor": "#FFBD3E"
+    },
+    {
+        "_id": 8,
+        "image": "https://i.ibb.co/DCQ04pT/newBooks.png",
+        "title": "New books for children",
+        "backgroundColor": "#FF7044"
+    },
+    {
+        "_id": 9,
+        "image": "https://i.ibb.co/G9xG14S/study-Group.png",
+        "title": "Host a study group.",
+        "backgroundColor": "#FFBD3E"
+    },
+    {
+        "_id": 10,
+        "image": "https://i.ibb.co/rvtR9xB/bird-House.png",
+        "title": "Build birdhouses for your neighbors.",
+        "backgroundColor": "#3F90FC"
+    },
+    {
+        "_id": 11,
+        "image": "https://i.ibb.co/BKXWqbC/library-Books.png",
+        "title": "Organize books at the library.",
+        "backgroundColor": "#FF7044"
+    },
+    {
+        "_id": 12,
+        "image": "https://i.ibb.co/YDJmKQ9/drive-Safety.png",
+        "title": "Give a seminar on driving safety.",
+        "backgroundColor": "#421FCF"
+    },
+    {
+        "_id": 13,
+        "image": "https://i.ibb.co/MGYbJqZ/music-Lessons.png",
+        "title": "Give free music lessons.",
+        "backgroundColor": "#421FCF"
+    },
+    {
+        "_id": 14,
+        "image": "https://i.ibb.co/xL99JQT/vote-Register.png",
+        "title": "Teach people how to register to vote.",
+        "backgroundColor": "#FFBD3E"
+    },
+    {
+        "_id": 15,
+        "image": "https://i.ibb.co/vsr82s1/clearn-Park.png",
+        "title": "Clean up your local park.",
+        "backgroundColor": "#3F90FC"
+    },
+    {
+        "_id": 16,
+        "image": "https://i.ibb.co/MhHsmqf/ITHelp.png",
+        "title": "Give IT help to local adults",
+        "backgroundColor": "#FF7044"
+    },
+    {
+        "_id": 17,
+        "image": "https://i.ibb.co/nsVVdmP/animal-Shelter.png",
+        "title": "Foster a shelter animal.",
+        "backgroundColor": "#FFBD3E"
+    },
+    {
+        "_id": 18,
+        "image": "https://i.ibb.co/GWJXQTh/babySit.png",
+        "title": "Babysit during PTA meetings.",
+        "backgroundColor": "#3F90FC"
+    },
+    {
+        "_id": 19,
+        "image": "https://i.ibb.co/xhSqkRb/stuffed-Animals.png",
+        "title": "Collect stuffed animals.",
+        "backgroundColor": "#FF7044"
+    },
+    {
+        "_id": 20,
+        "image": "https://i.ibb.co/Rvppq6j/school-Suffiles.png",
+        "title": "Collect school supplies.",
+        "backgroundColor": "#421FCF"
+    }
+]

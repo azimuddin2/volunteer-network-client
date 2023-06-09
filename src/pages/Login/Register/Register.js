@@ -52,6 +52,7 @@ const Register = () => {
                             name='name'
                             type="text"
                             placeholder="Full Name"
+                            required
                             className="input input-bordered focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
                         />
                     </div>
@@ -60,6 +61,7 @@ const Register = () => {
                             name='email'
                             type="email"
                             placeholder="Email"
+                            required
                             className="input input-bordered focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
                         />
                     </div>
@@ -88,6 +90,7 @@ const Register = () => {
                             name='password'
                             type="password"
                             placeholder="Password"
+                            required
                             className="input input-bordered focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
                         />
                     </div>

@@ -1,91 +1,44 @@
 import { useState } from "react";
-import {
-    Box,
-    Button,
-    IconButton,
-    Menu,
-    MenuItem,
-    Toolbar,
-    Typography
-} from "@mui/material";
-import AdbIcon from '@mui/icons-material/Adb';
-import MenuIcon from '@mui/icons-material/Menu';
+import './Navbar.css';
+import { Link } from "react-router-dom";
+import { HiBars3CenterLeft } from "react-icons/hi2";
+import { IoClose } from "react-icons/io5";
 
 const Navbar = () => {
-
-    const [anchorElNav, setAnchorElNav] = useState(null);
-
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
-
-    const pages = ['Home', 'Event', 'Register'];
-
+    const [open, setOpen] = useState(false);
 
     return (
-        <div>
-            <Toolbar disableGutters>
-                <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-
-                <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                    <IconButton
-                        size="large"
-                        aria-label="account of current user"
-                        aria-controls="menu-appbar"
-                        aria-haspopup="true"
-                        onClick={handleOpenNavMenu}
-                        color="black"
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Menu
-                        id="menu-appbar"
-                        anchorEl={anchorElNav}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'left',
-                        }}
-                        keepMounted
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'left',
-                        }}
-                        open={Boolean(anchorElNav)}
-                        onClose={handleCloseNavMenu}
-                        sx={{
-                            display: { xs: 'block', md: 'none' },
-                        }}
-                    >
-                        {pages.map((page) => (
-                            <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">{page}</Typography>
-                            </MenuItem>
-                        ))}
-                    </Menu>
-                </Box>
-
-
-
-                <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                    {pages.map((page) => (
-                        <Button
-                            key={page}
-                            onClick={handleCloseNavMenu}
-                            sx={{ my: 2, color: 'black', display: 'block' }}
-                        >
-                            {page}
-                        </Button>
-                    ))}
-                </Box>
-
-
-            </Toolbar>
-        </div>
+        <>
+            <nav className='header'>
+                <Link to='/'>
+                    {/* <img src={logo} alt="Logo" /> */}Logo
+                </Link>
+                <div>
+                    <ul id='navbar' className={open ? '#navbar active' : '#navbar'}>
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/shop">Shop</Link>
+                        </li>
+                        <li>
+                            <Link to="/order">Order</Link>
+                        </li>
+                        <li>
+                            <Link className='button' to="/login">Login</Link>
+                        </li>
+                    </ul>
+                </div>
+                <div id='mobile' onClick={() => setOpen(!open)}>
+                    {
+                        open ?
+                            <IoClose className='fa-bars' />
+                            :
+                            <HiBars3CenterLeft className='fa-bars' />
+                    }
+                </div>
+            </nav>
+        </>
     );
 };
 

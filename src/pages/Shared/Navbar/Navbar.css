@@ -1,11 +1,9 @@
 .header {
-    background-color: #1C2B35;
+    background-color: #fff;
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 140px;
-    padding-right: 140px;
 }
 
 #navbar {
@@ -18,12 +16,13 @@
 }
 
 .header a {
-    color: #ffffff;
+    color: #1C2B35;
     font-size: 16px;
     font-weight: 400;
     text-decoration: none;
-    margin-right: 32px;
+    margin-right: 28px;
     padding: 0 6px;
+    font-family: "Roboto", sans-serif;
 }
 
 .header a:hover {
@@ -31,15 +30,37 @@
     cursor: pointer;
 }
 
-.button {
-    background-color: #FF9900;
-    color: white;
-    padding: 6px 14px !important;
+.register-btn {
+    background-color: #3F90FC;
+    padding: 8px 20px !important;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     border: none;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
+    margin-right: 12px !important;
+}
+
+.register-btn a {
+    color: #fff;
+    margin: auto;
+}
+
+.admin-btn {
+    background-color: #434141;
+    color: white !important;
+    padding: 8px 20px !important;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    font-weight: 400 !important;
+    margin-right: 0px !important;
+}
+
+.admin-btn a {
+    color: #fff;
+    margin: auto;
 }
 
 #mobile {
@@ -64,7 +85,7 @@
         right: -350px;
         width: 580px;
         border-radius: 10px;
-        background-color: #2a3239;
+        background-color: #fff;
         box-shadow: 0 40px 60px rgb(0 0 0 / 10%);
         padding: 36px 24px 36px 24px;
         transition: 0.10s ease-in-out;
@@ -85,19 +106,23 @@
         display: block;
     }
 
-    .fa-bars {
-        color: #fff;
+    .icon {
+        color: #1C2B35;
         font-size: 24px;
     }
 
-    .button {
-        background-color: #FF9900;
-        color: white;
-        padding: 6px 60px !important;
-        border-radius: 5px;
-        font-size: 18px !important;
-        cursor: pointer;
-        border: none;
+    .register-btn {
+        padding: 8px 0px !important;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 12px !important;
+    }
+
+    .admin-btn {
+        padding: 8px 0px !important;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0px !important;
     }
 }
 
@@ -119,9 +144,10 @@
         right: -350px;
         width: 280px;
         border-radius: 10px;
-        background-color: #1C2B35;
-        box-shadow: 0 40px 60px rgb(0 0 0 / 10%);
-        padding: 36px 24px 36px 24px;
+        background-color: #fff;
+        box-shadow: 0 0px 20px rgb(0 0 0 / 10%);
+        padding-left: 0px;
+        padding: 28px;
         transition: 0.10s ease-in-out;
     }
 
@@ -140,18 +166,22 @@
         display: block;
     }
 
-    .fa-bars {
-        color: #fff;
-        font-size: 24px;
+    .icon {
+        color: #1C2B35;
+        font-size: 26px;
     }
 
-    .button {
-        background-color: #FF9900;
-        color: white;
-        padding: 6px 120px !important;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        border: none;
+    .register-btn {
+        padding: 8px 0px !important;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 12px !important;
+    }
+
+    .admin-btn {
+        padding: 8px 0px !important;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0px !important;
     }
 }

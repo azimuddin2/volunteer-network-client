@@ -4,7 +4,7 @@ import Footer from "../pages/Shared/Footer/Footer";
 
 const Main = () => {
     return (
-        <div>
+        <div style={{ maxWidth: '1280px', margin: 'auto' }}>
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

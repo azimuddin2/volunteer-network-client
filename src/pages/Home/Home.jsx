@@ -1,6 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import './Home.css';
 import Volunteer from '../../components/Volunteer/Volunteer';
+import Loading from '../../components/Loading/Loading';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
 const Home = () => {
 
@@ -12,6 +14,14 @@ const Home = () => {
             return data;
         }
     })
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
+    if (error) {
+        return <ErrorMessage message={error.message}></ErrorMessage>
+    }
 
     return (
         <section className='volunteers-section'>

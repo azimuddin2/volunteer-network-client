@@ -1,9 +1,13 @@
+import { Typography } from "@mui/material";
 
-const ErrorMessage = () => {
+const ErrorMessage = ({ message }) => {
     return (
-        <div>
-            
-        </div>
+        <Typography
+            color={'error'}
+            textAlign={'center'}
+        >
+            error: {message}
+        </Typography>
     );
 };
 

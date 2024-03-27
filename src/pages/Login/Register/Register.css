@@ -1,0 +1,38 @@
+.form-section {
+    background-color: #F8FAFC;
+    min-height: 100vh;
+}
+
+.form-container {
+    width: 40%;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.form-part {
+    margin-top: 20px;
+    border: 1px solid #ABABAB;
+    padding: 40px;
+    background-color: #FFF;
+    border-radius: 2px;
+}
+
+.form-title {
+    font-family: "Roboto", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.form {
+    display: grid;
+}
+
+.form-btn {
+    background-color: #3F90FC;
+    color: #fff;
+    border: none;
+    padding: 10px 0px;
+    border-radius: 2px;
+    margin-top: 24px;
+    font-size: 16px;
+}

@@ -44,11 +44,18 @@ const Navbar = () => {
                         {
                             user?.uid ?
                                 (
-                                    <button onClick={handleLogOut} className='register-btn'>SignOut</button>
+                                    <button
+                                        onClick={handleLogOut}
+                                        className='register-btn'
+                                    >
+                                        SignOut
+                                    </button>
                                 )
                                 :
                                 (
-                                    <Link to="/register" className='register-btn'>Register</Link>
+                                    <button className='register-btn'>
+                                        <Link to="/register">Register</Link>
+                                    </button>
                                 )
                         }
                     </li>

@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import './Home.css';
+import Volunteer from '../../components/Volunteer/Volunteer';
 
 const Home = () => {
 
@@ -13,14 +14,17 @@ const Home = () => {
     })
 
     return (
-        <section>
+        <section className='volunteers-section'>
             <div>
                 <h1 className="home-title">I grow by helping people in need.</h1>
             </div>
-            <div>
-{
-    volunteers.length
-}
+            <div className='volunteers'>
+                {
+                    volunteers.map(volunteer => <Volunteer
+                        key={volunteer._id}
+                        volunteer={volunteer}
+                    ></Volunteer>)
+                }
             </div>
         </section>
     );

@@ -19,6 +19,12 @@ const Register = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const date = formatDate;
+
     };
 
     return (
@@ -30,7 +36,6 @@ const Register = () => {
                 <div className="form-part">
                     <h2 className="form-title">Register as a Volunteer</h2>
                     <form onSubmit={handleSubmit} className="form">
-
                         <FormControl style={{ marginBottom: '10px' }} variant="standard">
                             <InputLabel htmlFor="standard-adornment-name">Full Name</InputLabel>
                             <Input
@@ -40,7 +45,6 @@ const Register = () => {
                                 required
                             />
                         </FormControl>
-
                         <FormControl style={{ marginBottom: '10px' }} variant="standard">
                             <InputLabel htmlFor="standard-adornment-email">Email</InputLabel>
                             <Input
@@ -50,7 +54,6 @@ const Register = () => {
                                 required
                             />
                         </FormControl>
-
                         <FormControl style={{ marginBottom: '10px' }} variant="standard">
                             <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
                             <Input
@@ -70,8 +73,6 @@ const Register = () => {
                                 }
                             />
                         </FormControl>
-
-
                         <FormControl style={{ marginBottom: '10px' }} variant="standard">
                             <InputLabel htmlFor="standard-adornment-date">Date</InputLabel>
                             <Input
@@ -79,12 +80,12 @@ const Register = () => {
                                 id="standard-adornment-date"
                                 type="text"
                                 required
-                                defaultValue={formatDate}
+                                value={formatDate}
                             />
                         </FormControl>
-
                         <button className="form-btn">Registration</button>
                     </form>
+                    <p className="have-an-account">Already have an account? <Link to={'/login'}>Please Login</Link></p>
                 </div>
             </div>
         </section>

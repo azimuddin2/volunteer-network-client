@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import logo from '../../../assets/logos/logo.png';
 
 const Login = () => {
-
     const [showPassword, setShowPassword] = useState(false);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -16,18 +15,20 @@ const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
     };
 
     return (
         <section className="form-section">
-            <div className="form-container">
+            <div style={{ paddingTop: '80px' }} className="form-container">
                 <Link to={'/'} style={{ display: 'flex', justifyContent: 'center' }}>
                     <img style={{ height: '48px' }} src={logo} alt="logo" />
                 </Link>
                 <div className="form-part">
                     <h2 className="form-title">Login as a Volunteer</h2>
                     <form onSubmit={handleSubmit} className="form">
-
                         <FormControl style={{ marginBottom: '10px' }} variant="standard">
                             <InputLabel htmlFor="standard-adornment-email">Email</InputLabel>
                             <Input
@@ -37,11 +38,10 @@ const Login = () => {
                                 required
                             />
                         </FormControl>
-
-
                         <FormControl style={{ marginBottom: '10px' }} variant="standard">
                             <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
                             <Input
+                                name="password"
                                 id="standard-adornment-password"
                                 type={showPassword ? 'text' : 'password'}
                                 endAdornment={
@@ -57,10 +57,9 @@ const Login = () => {
                                 }
                             />
                         </FormControl>
-
-
                         <button className="form-btn">Login</button>
                     </form>
+                    <p className="have-an-account">Don't have an account? <Link to={'/register'}>Please Register</Link></p>
                 </div>
             </div>
         </section>

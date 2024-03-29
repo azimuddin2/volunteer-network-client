@@ -4,10 +4,12 @@ import { useState } from "react";
 import './Register.css';
 import { Link } from "react-router-dom";
 import logo from '../../../assets/logos/logo.png';
+import { format } from "date-fns";
 
 const Register = () => {
-
     const [showPassword, setShowPassword] = useState(false);
+    const date = new Date()
+    const formatDate = format(date, 'PP');
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -50,18 +52,9 @@ const Register = () => {
                         </FormControl>
 
                         <FormControl style={{ marginBottom: '10px' }} variant="standard">
-                            <InputLabel htmlFor="standard-adornment-date">Date</InputLabel>
-                            <Input
-                                name="date"
-                                id="standard-adornment-date"
-                                type="text"
-                                required
-                            />
-                        </FormControl>
-
-                        <FormControl style={{ marginBottom: '10px' }} variant="standard">
                             <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
                             <Input
+                                name="password"
                                 id="standard-adornment-password"
                                 type={showPassword ? 'text' : 'password'}
                                 endAdornment={
@@ -78,6 +71,17 @@ const Register = () => {
                             />
                         </FormControl>
 
+
+                        <FormControl style={{ marginBottom: '10px' }} variant="standard">
+                            <InputLabel htmlFor="standard-adornment-date">Date</InputLabel>
+                            <Input
+                                name="date"
+                                id="standard-adornment-date"
+                                type="text"
+                                required
+                                defaultValue={formatDate}
+                            />
+                        </FormControl>
 
                         <button className="form-btn">Registration</button>
                     </form>

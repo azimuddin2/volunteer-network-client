@@ -4,9 +4,25 @@ import { Link } from "react-router-dom";
 import { HiBars3CenterLeft } from "react-icons/hi2";
 import { IoClose } from "react-icons/io5";
 import logo from '../../../assets/logos/logo.png';
+import useAuth from "../../../hooks/useAuth";
+import swal from "sweetalert";
 
 const Navbar = () => {
+    const { user, logOut } = useAuth();
     const [open, setOpen] = useState(false);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch((error) => {
+                swal({
+                    title: "Oops!",
+                    text: `${error.message}`,
+                    icon: "error",
+                    button: "Try Again",
+                });
+            })
+    };
 
     return (
         <>
@@ -24,8 +40,17 @@ const Navbar = () => {
                     <li>
                         <Link to="/blog">Blog</Link>
                     </li>
-                    <li className='register-btn'>
-                        <Link to="/register">Register</Link>
+                    <li>
+                        {
+                            user?.uid ?
+                                (
+                                    <button onClick={handleLogOut} className='register-btn'>SignOut</button>
+                                )
+                                :
+                                (
+                                    <Link to="/register" className='register-btn'>Register</Link>
+                                )
+                        }
                     </li>
                     <li className='admin-btn'>
                         <Link to="/admin">Admin</Link>

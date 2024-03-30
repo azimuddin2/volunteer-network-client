@@ -3,8 +3,11 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { FormControl, IconButton, Input, InputAdornment, InputLabel } from "@mui/material";
 import { Link } from "react-router-dom";
 import logo from '../../../assets/logos/logo.png';
+import useAuth from "../../../hooks/useAuth";
+import swal from "sweetalert";
 
 const Login = () => {
+    const { signIn } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -18,6 +21,26 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+
+        signIn(email, password)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                swal({
+                    title: "User Login Successful!",
+                    text: `Welcome - ${user?.displayName}`,
+                    icon: "success",
+                });
+            })
+            .catch((error) => {
+                swal({
+                    title: "Oops!",
+                    text: `${error.message}`,
+                    icon: "error",
+                    button: "Try Again",
+                });
+            })
     };
 
     return (

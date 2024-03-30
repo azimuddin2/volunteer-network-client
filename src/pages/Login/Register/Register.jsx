@@ -5,8 +5,11 @@ import './Register.css';
 import { Link } from "react-router-dom";
 import logo from '../../../assets/logos/logo.png';
 import { format } from "date-fns";
+import useAuth from "../../../hooks/useAuth";
+import swal from "sweetalert";
 
 const Register = () => {
+    const { createUser, updateUserProfile } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
     const date = new Date()
     const formatDate = format(date, 'PP');
@@ -25,6 +28,42 @@ const Register = () => {
         const password = form.password.value;
         const date = formatDate;
 
+        createUser(email, password)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                handleUpdateUserProfile(name);
+                form.reset();
+                swal({
+                    title: "User Registration Successful!",
+                    text: `Welcome - ${name}`,
+                    icon: "success",
+                });
+            })
+            .catch((error) => {
+                swal({
+                    title: "Oops!",
+                    text: `${error.message}`,
+                    icon: "error",
+                    button: "Try Again",
+                });
+            })
+    };
+
+    const handleUpdateUserProfile = (name) => {
+        const profile = {
+            displayName: name,
+        };
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch((error) => {
+                swal({
+                    title: "Oops!",
+                    text: `${error.message}`,
+                    icon: "error",
+                    button: "Try Again",
+                });
+            })
     };
 
     return (

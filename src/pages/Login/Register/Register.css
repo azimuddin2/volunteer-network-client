@@ -6,7 +6,7 @@
 .form-container {
     width: 40%;
     margin: auto;
-    padding-top: 50px;
+    padding: 50px 0px;
 }
 
 .form-part {
@@ -19,7 +19,7 @@
 
 .form-title {
     font-family: "Roboto", sans-serif;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 500;
 }
 

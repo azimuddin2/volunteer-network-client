@@ -1,5 +1,5 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { FormControl, IconButton, Input, InputAdornment, InputLabel } from "@mui/material";
+import { FormControl, IconButton, Input, InputAdornment, InputLabel, MenuItem, Select } from "@mui/material";
 import { useState } from "react";
 import './Register.css';
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -7,16 +7,32 @@ import logo from '../../../assets/logos/logo.png';
 import { format } from "date-fns";
 import useAuth from "../../../hooks/useAuth";
 import swal from "sweetalert";
+import { useQuery } from "@tanstack/react-query";
+import Loading from "../../../components/Loading/Loading";
 
 const Register = () => {
     const { createUser, updateUserProfile } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
+    const [selectVolunteer, setSelectVolunteer] = useState('');
     const date = new Date()
     const formatDate = format(date, 'PP');
 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+
+    const { data: volunteers = [], isLoading } = useQuery({
+        queryKey: ['volunteers'],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/volunteers`)
+            const data = await res.json()
+            return data;
+        }
+    });
+
+    const handleChange = (event) => {
+        setSelectVolunteer(event.target.value);
+    };
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -37,6 +53,7 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 handleUpdateUserProfile(name);
+                saveUserDatabase(name, email, date);
                 form.reset();
                 swal({
                     title: "User Registration Successful!",
@@ -71,6 +88,30 @@ const Register = () => {
             })
     };
 
+    const saveUserDatabase = (name, email, date) => {
+        const userInfo = {
+            name,
+            email,
+            date,
+            volunteer: selectVolunteer
+        };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+            })
+    };
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
     return (
         <section className="form-section">
             <div className="form-container">
@@ -97,6 +138,23 @@ const Register = () => {
                                 type="email"
                                 required
                             />
+                        </FormControl>
+                        <FormControl style={{ marginBottom: '10px' }} variant="standard">
+                            <InputLabel id="demo-simple-select-standard-label">Select Volunteer</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-standard-label"
+                                id="demo-simple-select-standard"
+                                onChange={handleChange}
+                            >
+                                {
+                                    volunteers?.map(volunteer => <MenuItem
+                                        key={volunteer._id}
+                                        value={volunteer.title}
+                                    >
+                                        {volunteer.title}
+                                    </MenuItem>)
+                                }
+                            </Select>
                         </FormControl>
                         <FormControl style={{ marginBottom: '10px' }} variant="standard">
                             <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>

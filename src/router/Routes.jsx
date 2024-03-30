@@ -3,6 +3,8 @@ import Main from "../layout/Main";
 import Home from "../pages/Home/Home";
 import Register from "../pages/Login/Register/Register";
 import Login from "../pages/Login/Login/Login";
+import PrivateRoute from "./PrivateRoute";
+import Events from "../pages/Events/Events";
 
 const router = createBrowserRouter([
     {
@@ -12,6 +14,12 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: 'events',
+                element: <PrivateRoute>
+                    <Events></Events>
+                </PrivateRoute>
             },
         ],
     },

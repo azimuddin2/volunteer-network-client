@@ -2,7 +2,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { FormControl, IconButton, Input, InputAdornment, InputLabel } from "@mui/material";
 import { useState } from "react";
 import './Register.css';
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from '../../../assets/logos/logo.png';
 import { format } from "date-fns";
 import useAuth from "../../../hooks/useAuth";
@@ -13,6 +13,10 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const date = new Date()
     const formatDate = format(date, 'PP');
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -39,6 +43,7 @@ const Register = () => {
                     text: `Welcome - ${name}`,
                     icon: "success",
                 });
+                navigate(from, { replace: true });
             })
             .catch((error) => {
                 swal({
@@ -99,6 +104,7 @@ const Register = () => {
                                 name="password"
                                 id="standard-adornment-password"
                                 type={showPassword ? 'text' : 'password'}
+                                required
                                 endAdornment={
                                     <InputAdornment position="end">
                                         <IconButton

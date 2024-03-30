@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { FormControl, IconButton, Input, InputAdornment, InputLabel } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from '../../../assets/logos/logo.png';
 import useAuth from "../../../hooks/useAuth";
 import swal from "sweetalert";
@@ -9,6 +9,10 @@ import swal from "sweetalert";
 const Login = () => {
     const { signIn } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -32,6 +36,7 @@ const Login = () => {
                     text: `Welcome - ${user?.displayName}`,
                     icon: "success",
                 });
+                navigate(from, { replace: true });
             })
             .catch((error) => {
                 swal({
@@ -67,6 +72,7 @@ const Login = () => {
                                 name="password"
                                 id="standard-adornment-password"
                                 type={showPassword ? 'text' : 'password'}
+                                required
                                 endAdornment={
                                     <InputAdornment position="end">
                                         <IconButton

@@ -1,0 +1,12 @@
+.event{
+    background-color: #F8FAFC;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.event img {
+    width: 120px;
+}

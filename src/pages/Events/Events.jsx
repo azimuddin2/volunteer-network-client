@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const Events = () => {
     const { user } = useAuth();
 
-    const { data: events = [], isLoading, error } = useQuery({
+    const { data: events = [], isLoading, error, refetch } = useQuery({
         queryKey: ['events', user?.email],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/events?email=${user?.email}`);
@@ -37,6 +37,7 @@ const Events = () => {
                                 events?.map(event => <Event
                                     key={event._id}
                                     event={event}
+                                    refetch={refetch}
                                 ></Event>)
                             }
                         </div>

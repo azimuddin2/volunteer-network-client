@@ -1,5 +1,42 @@
-.events{
+.events-section {
+    margin: 40px 0px;
+}
+
+.events {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 20px;
+}
+
+.second-part {
+    display: grid;
+    text-align: center;
+}
+
+.event-gif {
+    margin: auto;
+}
+
+.event-btn {
+    background-color: #3F90FC;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* responsive mobile device */
+@media screen and (max-width: 576px) {
+    .events {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 12px;
+    }
+
+    .event-gif {
+        width: 100%;
+    }
 }

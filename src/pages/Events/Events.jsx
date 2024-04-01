@@ -3,7 +3,9 @@ import useAuth from "../../hooks/useAuth";
 import Loading from "../../components/Loading/Loading";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Event from "../../components/Event/Event";
+import eventGif from '../../assets/images/event.gif';
 import './Events.css';
+import { Link } from "react-router-dom";
 
 const Events = () => {
     const { user } = useAuth();
@@ -26,15 +28,29 @@ const Events = () => {
     }
 
     return (
-        <section>
-            <div className="events">
-                {
-                    events?.map(event => <Event
-                        key={event._id}
-                        event={event}
-                    ></Event>)
-                }
-            </div>
+        <section className="events-section">
+            {
+                events?.length > 0 ?
+                    (
+                        <div className="events">
+                            {
+                                events?.map(event => <Event
+                                    key={event._id}
+                                    event={event}
+                                ></Event>)
+                            }
+                        </div>
+                    )
+                    :
+                    (
+                        <div className="second-part">
+                            <img src={eventGif} alt="event gif" className="event-gif" />
+                            <Link to={'/'}>
+                                <button className="event-btn">Please join the event program</button>
+                            </Link>
+                        </div>
+                    )
+            }
         </section>
     );
 };

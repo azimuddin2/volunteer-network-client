@@ -6,11 +6,13 @@ const Event = ({ event }) => {
     return (
         <div className='event'>
             <img src={image} alt="" />
-            <div>
+            <div className='event-info'>
                 <h2>{title}</h2>
                 <p>{date}</p>
             </div>
-            <button>
+            <button
+                className='cancel-btn'
+            >
                 Cancel
             </button>
         </div>

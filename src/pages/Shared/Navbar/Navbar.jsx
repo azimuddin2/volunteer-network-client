@@ -60,7 +60,7 @@ const Navbar = () => {
                         }
                     </li>
                     <li className='admin-btn'>
-                        <Link to="/admin">Admin</Link>
+                        <Link to="/dashboard">Admin</Link>
                     </li>
                 </ul>
                 <div id='mobile' onClick={() => setOpen(!open)}>

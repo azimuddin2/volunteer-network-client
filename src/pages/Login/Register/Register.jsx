@@ -24,7 +24,7 @@ const Register = () => {
     const { data: volunteers = [], isLoading } = useQuery({
         queryKey: ['volunteers'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/volunteers`)
+            const res = await fetch(`https://volunteer-network-server-sigma-liard.vercel.app/volunteers`)
             const data = await res.json()
             return data;
         }
@@ -95,7 +95,7 @@ const Register = () => {
             date,
             volunteer: selectVolunteer
         };
-        fetch('http://localhost:5000/users', {
+        fetch('https://volunteer-network-server-sigma-liard.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

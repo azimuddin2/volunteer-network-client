@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import Events from "../pages/Events/Events";
 import Blog from "../pages/Blog/Blog";
+import Dashboard from "../layout/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,13 @@ const router = createBrowserRouter([
     {
         path: 'login',
         element: <Login></Login>
+    },
+    {
+        path: 'dashboard',
+        element: <PrivateRoute>
+            <Dashboard></Dashboard>
+        </PrivateRoute>,
+        children: [],
     },
 ]);
 

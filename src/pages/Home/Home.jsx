@@ -17,7 +17,7 @@ const Home = () => {
     const { data: volunteers = [], isLoading, error } = useQuery({
         queryKey: ['volunteers', search],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/volunteers?search=${search}`)
+            const res = await fetch(`https://volunteer-network-server-sigma-liard.vercel.app/volunteers?search=${search}`)
             const data = await res.json()
             return data;
         }

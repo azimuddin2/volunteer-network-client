@@ -13,7 +13,7 @@ const Events = () => {
     const { data: events = [], isLoading, error, refetch } = useQuery({
         queryKey: ['events', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/events?email=${user?.email}`);
+            const res = await fetch(`https://volunteer-network-server-sigma-liard.vercel.app/events?email=${user?.email}`);
             const data = await res.json();
             return data;
         }

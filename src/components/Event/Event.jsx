@@ -15,7 +15,7 @@ const Event = ({ event, refetch }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/events/${event._id}`, {
+                    fetch(`https://volunteer-network-server-sigma-liard.vercel.app/events/${event._id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())

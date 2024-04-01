@@ -25,7 +25,7 @@ const Volunteer = ({ volunteer }) => {
         };
 
         if (user?.email) {
-            fetch('http://localhost:5000/events', {
+            fetch('https://volunteer-network-server-sigma-liard.vercel.app/events', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
